@@ -18,12 +18,13 @@
             <h2>مرحباً بعودتك</h2>
             <p class="subtitle">سجل دخولك للوصول إلى لوحة التحكم</p>
 
-            <form action="../dashboard/dashboard.html" method="GET">
+            <!-- 🚨 تعديل: شيلنا الـ action عشان الجافاسكريبت والباك إند يتحكموا بالكامل -->
+            <form id="loginForm">
                 <div class="input-group">
                     <label>البريد الإلكتروني</label>
                     <div class="input-wrapper">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="admin@lawfirm.com" required dir="ltr">
+                        <input type="email" id="emailInput" placeholder="admin@gmail.com" required dir="ltr">
                     </div>
                 </div>
                 
@@ -31,7 +32,16 @@
                     <label>كلمة المرور</label>
                     <div class="input-wrapper">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="••••••••" required dir="ltr">
+                        <input type="password" id="passwordInput" placeholder="••••••••" required dir="ltr">
+                    </div>
+                </div>
+
+                <!-- 🔒 حقل الـ OTP المخفي: هيظهر أوتوماتيك لو الحساب محتاج تفعيل -->
+                <div class="input-group" id="otpGroup" style="display: none; margin-top: 15px;">
+                    <label style="color: var(--gold);">رمز التأكيد (OTP)</label>
+                    <div class="input-wrapper" style="border-color: var(--gold);">
+                        <i class="fas fa-key" style="color: var(--gold);"></i>
+                        <input type="text" id="otpInput" placeholder="أدخل الـ 6 أرقام" dir="ltr" maxlength="6">
                     </div>
                 </div>
 
@@ -44,7 +54,7 @@
                     <a href="#" class="forgot-link">نسيت كلمة المرور؟</a>
                 </div>
 
-                <button type="submit" class="btn-submit">تسجيل الدخول <i class="fas fa-arrow-left"></i></button>
+                <button type="submit" class="btn-submit" id="submitBtn">تسجيل الدخول <i class="fas fa-arrow-left"></i></button>
             </form>
             
             <div class="register-navigation">
@@ -56,5 +66,8 @@
             </div>
         </div>
     </div>
+
+    <!-- 🚨 استدعاء السكريبت كـ module عشان الـ imports تشتغل صح -->
+    <script type="module" src="login.js"></script>
 </body>
 </html>
