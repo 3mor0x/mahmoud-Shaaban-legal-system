@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الماليات والفواتير - المنصة الرقمية</title>
+    <link rel="stylesheet" href="finances.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon"><i class="fas fa-balance-scale"></i></div>
+                <div class="brand-text">
+                    <h3>المنصة الرقمية</h3>
+                    <p>مكتب أ. محمود شعبان</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="../dashboard/dashboard.html"><i class="fas fa-th-large"></i> <span>اللوحة الرئيسية</span></a></li>
+                    <li><a href="../cases/cases.html"><i class="fas fa-briefcase"></i> <span>إدارة القضايا</span></a></li>
+                    <li><a href="../clients/clients.html"><i class="fas fa-users"></i> <span>سجل الموكلين</span></a></li>
+                    <li><a href="../sessions/sessions.html"><i class="far fa-calendar-alt"></i> <span>الجلسات والمواعيد</span></a></li>
+                    <li><a href="../archive/archive.html"><i class="fas fa-archive"></i> <span>الأرشيف الرقمي</span></a></li>
+                    <li class="active"><a href="#"><i class="fas fa-file-invoice-dollar"></i> <span>الماليات والفواتير</span></a></li>
+                    <li><a href="../lawyers/lawyers.html"><i class="fas fa-user-tie"></i> <span>فريق العمل والشات</span></a></li>
+                    <li><a href="../settings/settings.html"><i class="fas fa-cog"></i> <span>إعدادات النظام</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-wrapper">
+            <header class="topbar">
+                <div class="topbar-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="ابحث برقم الفاتورة أو الموكل...">
+                    </div>
+                </div>
+                <div class="topbar-left">
+                    <div class="user-profile">
+                        <div class="avatar">م</div>
+                        <div class="user-info">
+                            <h4>أ. محمود شعبان</h4>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-container">
+                <div class="page-header">
+                    <div class="header-titles">
+                        <h1>الماليات والفواتير <i class="fas fa-coins text-gold" style="font-size: 24px; margin-right: 10px;"></i></h1>
+                        <p>إدارة أتعاب القضايا، المستحقات المالية، وإصدار الفواتير الرسمية.</p>
+                    </div>
+                    <button class="btn btn-gold" onclick="openModal()"><i class="fas fa-receipt"></i> تسجيل دفعة جديدة</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card premium-stat">
+                        <div class="stat-icon-wrapper"><i class="fas fa-wallet"></i></div>
+                        <div class="stat-details">
+                            <p>إيرادات الشهر الحالي</p>
+                            <h3>45,000 <small>ج.م</small></h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper bg-red-light text-red"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="stat-details">
+                            <p>مستحقات متأخرة</p>
+                            <h3 class="text-red">12,500 <small>ج.م</small></h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper bg-blue-light text-blue"><i class="fas fa-file-invoice"></i></div>
+                        <div class="stat-details">
+                            <p>مصروفات إدارية</p>
+                            <h3>8,200 <small>ج.م</small></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-box">
+                    <div class="box-header">
+                        <h2>سجل الفواتير والمدفوعات</h2>
+                        <select class="custom-select" style="width: auto;"><option>جميع الحالات</option><option>مدفوع</option><option>مستحق</option></select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="premium-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الفاتورة</th>
+                                    <th>الموكل / البيان</th>
+                                    <th>تاريخ الإصدار</th>
+                                    <th>المبلغ</th>
+                                    <th>الحالة</th>
+                                    <th>إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#INV-2026-001</strong></td>
+                                    <td>
+                                        <strong>شركة المقاولات العربية</strong>
+                                        <span class="sub-text">أتعاب قضية مدني كلي</span>
+                                    </td>
+                                    <td>15 أكتوبر 2026</td>
+                                    <td><strong class="text-navy" style="font-size:16px;">15,000 ج.م</strong></td>
+                                    <td><span class="badge badge-active">مدفوع بالكامل</span></td>
+                                    <td>
+                                        <button class="action-btn text-blue"><i class="fas fa-print"></i></button>
+                                        <button class="action-btn text-gold"><i class="far fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#INV-2026-002</strong></td>
+                                    <td>
+                                        <strong>أحمد محمد السيد</strong>
+                                        <span class="sub-text">رسوم تسجيل عقاري</span>
+                                    </td>
+                                    <td>10 أكتوبر 2026</td>
+                                    <td><strong class="text-red" style="font-size:16px;">4,500 ج.م</strong></td>
+                                    <td><span class="badge badge-danger">مستحق الدفع</span></td>
+                                    <td>
+                                        <button class="action-btn text-gold"><i class="fas fa-bell"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>تسجيل فاتورة جديدة</h2>
+                <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <form class="modal-body" onsubmit="event.preventDefault(); closeModal();">
+                <div class="form-group"><label>اسم الموكل</label><select class="custom-select"><option>شركة المقاولات</option><option>أحمد محمد</option></select></div>
+                <div class="form-group"><label>البيان</label><input type="text" required></div>
+                <div class="form-row">
+                    <div class="form-group"><label>المبلغ</label><input type="number" required></div>
+                    <div class="form-group"><label>الحالة</label><select class="custom-select"><option>مدفوع</option><option>مستحق</option></select></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal()">إلغاء</button>
+                    <button type="submit" class="btn btn-gold">حفظ الفاتورة</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="finances.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>إنشاء حساب | النظام القانوني</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-bg glow-1"></div>
+    
+    <div class="auth-container" style="max-width: 480px;">
+        <div class="auth-card">
+            <div class="logo-area">
+                <div class="logo-icon"><i class="fas fa-balance-scale"></i></div>
+            </div>
+            <h2>إنشاء حساب جديد</h2>
+            <p class="subtitle">انضم إلى المنصة القانونية الأقوى وإدارة أعمالك بذكاء</p>
+
+            <form action="../dashboard/dashboard.html" method="GET">
+                <div class="input-group">
+                    <label>الاسم الكامل</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="الاسم رباعي" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>البريد الإلكتروني</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="example@mail.com" required dir="ltr">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label>كلمة المرور</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="••••••••" required dir="ltr">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">تسجيل حساب جديد <i class="fas fa-user-plus"></i></button>
+            </form>
+            
+            <div class="back-home">
+                <a href="index.html">لديك حساب بالفعل؟ قم بتسجيل الدخول</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

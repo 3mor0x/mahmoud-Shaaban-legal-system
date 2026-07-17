@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>تسجيل الدخول | نظام إدارة المحاماة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="logo-area">
+                <div class="logo-icon"><i class="fas fa-balance-scale"></i></div>
+            </div>
+            <h2>مرحباً بعودتك</h2>
+            <p class="subtitle">سجل دخولك للوصول إلى لوحة التحكم</p>
+
+            <form action="../dashboard/dashboard.html" method="GET">
+                <div class="input-group">
+                    <label>البريد الإلكتروني</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="admin@lawfirm.com" required dir="ltr">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label>كلمة المرور</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="••••••••" required dir="ltr">
+                    </div>
+                </div>
+
+                <div class="options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                        تذكرني
+                    </label>
+                    <a href="#" class="forgot-link">نسيت كلمة المرور؟</a>
+                </div>
+
+                <button type="submit" class="btn-submit">تسجيل الدخول <i class="fas fa-arrow-left"></i></button>
+            </form>
+            
+            <div class="register-navigation">
+                <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد الآن <i class="fas fa-user-plus"></i></a></p>
+            </div>
+
+            <div class="back-home">
+                <a href="../index.html"><i class="fas fa-home"></i> العودة للموقع الرئيسي</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

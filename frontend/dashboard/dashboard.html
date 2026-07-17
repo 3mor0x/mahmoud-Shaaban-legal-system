@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>لوحة التحكم | النظام القانوني</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- القائمة الجانبية -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon"><i class="fas fa-balance-scale"></i></div>
+                <div class="logo-text"><h2>المنصة العليا</h2><p>لإدارة المحاماة</p></div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <p class="menu-label">القائمة الرئيسية</p>
+                <a href="dashboard.html" class="menu-item active"><i class="fas fa-home"></i> <span>الرئيسية</span></a>
+                <a href="../cases/cases.html" class="menu-item"><i class="fas fa-briefcase"></i> <span>إدارة القضايا</span></a>
+                <a href="../clients/clients.html" class="menu-item"><i class="fas fa-users"></i> <span>الموكلين</span></a>
+                <a href="../sessions/sessions.html" class="menu-item"><i class="fas fa-calendar-alt"></i> <span>الجلسات والأجندة</span></a>
+                
+                <p class="menu-label">المكتب والفريق</p>
+                <a href="../archive/archive.html" class="menu-item"><i class="fas fa-folder-open"></i> <span>الأرشيف الرقمي</span></a>
+                <a href="../lawyers/lawyers.html" class="menu-item"><i class="fas fa-user-tie"></i> <span>الفريق والمهام</span></a>
+                <a href="../settings/settings.html" class="menu-item"><i class="fas fa-cog"></i> <span>الإعدادات</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="../login/index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+            </div>
+        </aside>
+
+        <!-- مساحة المحتوى -->
+        <main class="main-content">
+            <!-- التوب بار المظبوط هيدروليكياً -->
+            <header class="top-bar">
+                <div class="top-bar-right">
+                    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="ابحث برقم الدعوى، أو اسم الموكل...">
+                    </div>
+                </div>
+                <div class="top-bar-left">
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <div class="user-profile">
+                        <div class="avatar"><i class="fas fa-user"></i></div>
+                        <div class="info md-hidden">
+                            <h4>محمود شعبان</h4>
+                            <p>Super Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- محتوى الداشبورد -->
+            <div class="page-content">
+                <div class="welcome-section">
+                    <div>
+                        <h1 class="page-title">نظرة عامة على المكتب</h1>
+                        <p class="page-desc">مرحباً بك، إليك ملخص سريع لآخر التحديثات والإحصائيات.</p>
+                    </div>
+                    <button class="btn-primary" onclick="location.href='../cases/cases.html'"><i class="fas fa-plus"></i> إضافة قضية جديدة</button>
+                </div>
+
+                <!-- الإحصائيات -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon bg-blue"><i class="fas fa-gavel"></i></div>
+                            <span class="trend up"><i class="fas fa-arrow-up"></i> +12%</span>
+                        </div>
+                        <div class="stat-info">
+                            <p>إجمالي القضايا النشطة</p>
+                            <h3>145</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon bg-gold"><i class="fas fa-users"></i></div>
+                            <span class="trend up"><i class="fas fa-arrow-up"></i> +5%</span>
+                        </div>
+                        <div class="stat-info">
+                            <p>الموكلين الجدد هذا الشهر</p>
+                            <h3>24</h3>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon bg-red"><i class="fas fa-calendar-day"></i></div>
+                            <span class="trend neutral">اليوم</span>
+                        </div>
+                        <div class="stat-info">
+                            <p>جلسات اليوم</p>
+                            <h3>8 جلسات</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قسم الجلسات والنشاطات السفلي السفلي من الصورة -->
+                <div class="content-grid-saas">
+                    <div class="premium-panel">
+                        <div class="panel-header-row">
+                            <h3>جلسات قادمة (أقرب 3 أيام)</h3>
+                            <a href="../sessions/sessions.html" class="view-all">عرض الكل</a>
+                        </div>
+                        <div class="agenda-list">
+                            <div class="agenda-item" style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px;">
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; width: 50px; height: 50px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                                        <span style="font-size: 16px; font-weight: 900; line-height:1;">15</span>
+                                        <small style="font-size: 10px; color: var(--gold);">مايو</small>
+                                    </div>
+                                    <div>
+                                        <h4 style="font-size: 14px; font-weight: 800;">محكمة الجيزة الكلية - دائرة 5</h4>
+                                        <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">قضية رقم 145/2023 - موكل: أحمد حسن</p>
+                                    </div>
+                                </div>
+                                <span class="badge-saas" style="background: rgba(239, 68, 68, 0.1); color: var(--red);">عاجل</span>
+                            </div>
+
+                            <div class="agenda-item" style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px;">
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; width: 50px; height: 50px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                                        <span style="font-size: 16px; font-weight: 900; line-height:1;">16</span>
+                                        <small style="font-size: 10px; color: var(--gold);">مايو</small>
+                                    </div>
+                                    <div>
+                                        <h4 style="font-size: 14px; font-weight: 800;">مجلس الدولة - دائرة العقود</h4>
+                                        <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">قضية رقم 88/2024 - موكل: شركة الأمل</p>
+                                    </div>
+                                </div>
+                                <span class="badge-saas" style="background: rgba(59, 130, 246, 0.1); color: var(--blue);">مجدولة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-panel">
+                        <div class="panel-header-row">
+                            <h3>آخر التحديثات بالنظام</h3>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                <div style="width: 35px; height: 35px; background: rgba(16, 185, 129, 0.1); color: var(--green); border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0;"><i class="fas fa-check" style="font-size:12px;"></i></div>
+                                <div>
+                                    <p style="font-size: 13px; line-height: 1.5;">قام <strong>أ. علي</strong> بتحديث حالة القضية 12/2023 إلى محسومة.</p>
+                                    <small style="color: var(--text-muted); font-size: 11px;">منذ ساعتين</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>

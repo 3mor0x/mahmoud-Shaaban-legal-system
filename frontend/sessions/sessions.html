@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>الجلسات والمواعيد | المنصة الرقمية</title>
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- السايدبار الموحد الفخم والثابت -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon"><i class="fas fa-balance-scale"></i></div>
+                <div class="logo-text"><h2>المنصة العليا</h2><p>لإدارة المحاماة</p></div>
+            </div>
+            <div class="sidebar-menu">
+                <p class="menu-label">القائمة الرئيسية</p>
+                <a href="../dashboard/dashboard.html" class="menu-item"><i class="fas fa-home"></i> <span>الرئيسية</span></a>
+                <a href="../cases/cases.html" class="menu-item"><i class="fas fa-briefcase"></i> <span>إدارة القضايا</span></a>
+                <a href="../clients/clients.html" class="menu-item"><i class="fas fa-users"></i> <span>الموكلين</span></a>
+                <a href="sessions.html" class="menu-item active"><i class="fas fa-calendar-alt"></i> <span>الجلسات والأجندة</span></a>
+                <p class="menu-label">المكتب والفريق</p>
+                <a href="../archive/archive.html" class="menu-item"><i class="fas fa-folder-open"></i> <span>الأرشيف الرقمي</span></a>
+                <a href="../lawyers/lawyers.html" class="menu-item"><i class="fas fa-user-tie"></i> <span>الفريق والمهام</span></a>
+                <a href="../settings/settings.html" class="menu-item"><i class="fas fa-cog"></i> <span>الإعدادات</span></a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="../login/index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+            </div>
+        </aside>
+
+        <!-- مساحة المحتوى الرئيسية -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-right">
+                    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="ابحث بتاريخ الجلسة أو اسم المحكمة..."></div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="welcome-section">
+                    <div>
+                        <h1 class="page-title">أجندة الجلسات والمواعيد</h1>
+                        <p class="page-desc">إدارة مواعيد المحاكم، الاجتماعات الاستشارية، وتنبيهات القضايا</p>
+                    </div>
+                    <button class="btn-primary" onclick="toggleModal('sessionModal', true)"><i class="fas fa-calendar-plus"></i> إضافة موعد جديد</button>
+                </div>
+
+                <!-- شريط أيام الأسبوع الفخم (Calendar Bar) -->
+                <div class="premium-panel" style="margin-bottom: 25px; padding: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3 style="font-size: 16px; color: var(--gold); font-weight: 800;">أكتوبر 2026</h3>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="action-icon-btn" style="margin:0;"><i class="fas fa-chevron-right"></i></button>
+                            <button class="action-icon-btn" style="margin:0;"><i class="fas fa-chevron-left"></i></button>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center;">
+                        <div style="padding: 10px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px;">
+                            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 5px;">ح</span>
+                            <strong>4</strong>
+                        </div>
+                        <div style="padding: 10px; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); border-radius: 12px; color: var(--gold);">
+                            <span style="font-size: 12px; display: block; margin-bottom: 5px; font-weight: 700;">ن</span>
+                            <strong>5</strong>
+                        </div>
+                        <div style="padding: 10px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px;">
+                            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 5px;">ث</span>
+                            <strong>6</strong>
+                        </div>
+                        <div style="padding: 10px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px;">
+                            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 5px;">ر</span>
+                            <strong>7</strong>
+                        </div>
+                        <div style="padding: 10px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px;">
+                            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 5px;">خ</span>
+                            <strong>8</strong>
+                        </div>
+                        <div style="padding: 10px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px;">
+                            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 5px;">ج</span>
+                            <strong>9</strong>
+                        </div>
+                        <div style="padding: 10px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px;">
+                            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 5px;">س</span>
+                            <strong>10</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- جدول عرض تفاصيل المواعيد الجارية -->
+                <div class="premium-panel">
+                    <div class="panel-header-row">
+                        <h3>قائمة مواعيد وجدول أعمال اليوم المحدد</h3>
+                        <select class="custom-select-saas"><option>اليوم الحالي</option><option>الأسبوع الحالي</option></select>
+                    </div>
+                    
+                    <div class="agenda-list">
+                        <!-- كارت موعد 1 -->
+                        <div class="agenda-item" style="justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                                <div style="width: 50px; height: 50px; background: rgba(239, 68, 68, 0.1); color: var(--red); border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 20px;"><i class="fas fa-gavel"></i></div>
+                                <div>
+                                    <h4 style="font-size: 15px; font-weight: 800;">جلسة نطق بالحكم - قضية مدني كلي</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">
+                                        <i class="fas fa-map-marker-alt" style="margin-left: 5px;"></i> محكمة أسيوط الابتدائية • 
+                                        <i class="fas fa-clock" style="margin-left: 5px; margin-right: 10px;"></i> 09:00 صباحاً • 
+                                        <i class="fas fa-user" style="margin-left: 5px; margin-right: 10px;"></i> الموكل: أحمد محمد السيد
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <span class="badge-saas" style="background: rgba(239, 68, 68, 0.1); color: var(--red);">عاجل</span>
+                                <button class="action-icon-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- كارت موعد 2 -->
+                        <div class="agenda-item" style="justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                                <div style="width: 50px; height: 50px; background: rgba(59, 130, 246, 0.1); color: var(--blue); border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 20px;"><i class="fas fa-handshake"></i></div>
+                                <div>
+                                    <h4 style="font-size: 15px; font-weight: 800;">اجتماع استشارة وتأسيس شركات</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">
+                                        <i class="fas fa-map-marker-alt" style="margin-left: 5px;"></i> مقر المكتب الرئيسي • 
+                                        <i class="fas fa-clock" style="margin-left: 5px; margin-right: 10px;"></i> 04:00 مساءً • 
+                                        <i class="fas fa-user" style="margin-left: 5px; margin-right: 10px;"></i> العميل: شركة الأمل للمقاولات
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <span class="badge-saas" style="background: rgba(59, 130, 246, 0.1); color: var(--blue);">استشارة</span>
+                                <button class="action-icon-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- نافذة إضافة موعد/جلسة جديدة -->
+    <div class="modal-saas-overlay" id="sessionModal">
+        <div class="modal-saas-card">
+            <div class="modal-saas-header">
+                <h3>إدراج موعد / جلسة بالأجندة</h3>
+                <button class="modal-saas-close" onclick="toggleModal('sessionModal', false)"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="form-group-saas">
+                <label>نوع الموعد</label>
+                <select>
+                    <option>جلسة محكمة</option>
+                    <option>اجتماع مع موكل</option>
+                    <option>تحقيق نيابة</option>
+                </select>
+            </div>
+            <div class="form-group-saas">
+                <label>العنوان / الوصف المختصر</label>
+                <input type="text" placeholder="مثال: تقديم مذكرات دفاع أمام الدائرة المدنية">
+            </div>
+            <div class="form-group-row">
+                <div class="form-group-saas"><label>التاريخ</label><input type="date"></div>
+                <div class="form-group-saas"><label>التوقيت</label><input type="time"></div>
+            </div>
+            <div class="modal-buttons-footer">
+                <button class="btn-secondary-link" onclick="toggleModal('sessionModal', false)">إلغاء</button>
+                <button class="btn-primary">حفظ الموعد</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../dashboard/dashboard.js"></script>
+</body>
+</html>
