@@ -1,6 +1,7 @@
 import { supabase } from '../supabaseClient.js'
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // 1. تشغيل وإصلاح السايدبار للموبايل
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
 
@@ -11,50 +12,71 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    document.addEventListener("click", (e) => {
-        if (window.innerWidth <= 1024 && sidebar && sidebar.classList.contains("active")) {
-            if (!sidebar.contains(e.target) && e.target !== menuToggle) {
-                sidebar.classList.remove("active");
-            }
-        }
-    });
-
-    // 2. التحقق من أمان الجلسة (Auth Guard)
+    // 2. 🔒 حارس الأمن الصارم والـ Authorization Guard
     const userId = localStorage.getItem("sb-user-id");
-    const userRole = localStorage.getItem("sb-user-role");
-
-    if (!userId || !userRole) {
+    
+    if (!userId) {
+        // لو مفيش توكن نهائي اطرده للوجين
         window.location.href = "../login/index.html";
         return;
     }
 
-    await loadLiveStats();
-    await loadUpcomingSessions();
+    try {
+        // التحقق الفوري واللايف من السيرفر للتأكد من رتبة الحساب الحالية
+        const { data: profile, error } = await supabase
+            .from('profiles')
+            .select('role, full_name')
+            .eq('id', userId)
+            .single();
+
+        // لو الحساب ملوش بروفايل أو حصل مشكلة، اطرده
+        if (error || !profile) {
+            throw new Error("بروفايل غير مصرح به");
+        }
+
+        // 🚨 القفل الحاسم: لو الحساب دخل وهو مش صاحب المكتب (admin)، اطرده فوراً لمنع تصفح البيانات
+        if (profile.role !== 'admin') {
+            alert("❌ عذراً، هذه اللوحة مخصصة لإدارة وصاحب المكتب فقط!");
+            localStorage.clear(); // تنظيف التوكنات المزيفة
+            window.location.href = "../login/index.html";
+            return;
+        }
+
+        // تحديث اسم الأدمن لايف في التوب بار بناءً على حسابه الحقيقي في الداتا
+        const adminNameLabel = document.querySelector(".user-profile .info h4");
+        if (adminNameLabel) {
+            adminNameLabel.innerText = profile.full_name;
+        }
+
+        // 3. تحميل البيانات والإحصائيات الحية فقط بعد نجاح الفحص الأمنب
+        await loadLiveStats();
+        await loadUpcomingSessions();
+
+    } catch (err) {
+        console.error("أمن النظام:", err.message);
+        localStorage.clear();
+        window.location.href = "../login/index.html";
+    }
 });
 
+// دالة جلب العدادات الحية من الداتابيز
 async function loadLiveStats() {
     try {
-        const { count: casesCount, error: casesError } = await supabase
+        const { count: casesCount } = await supabase
             .from('cases')
             .select('*', { count: 'exact', head: true })
             .eq('status', 'active');
 
-        if (casesError) throw casesError;
-
-        const { count: clientsCount, error: clientsError } = await supabase
+        const { count: clientsCount } = await supabase
             .from('profiles')
             .select('*', { count: 'exact', head: true })
             .eq('role', 'client');
 
-        if (clientsError) throw clientsError;
-
         const todayStr = new Date().toISOString().split('T')[0];
-        const { count: sessionsCount, error: sessionsError } = await supabase
+        const { count: sessionsCount } = await supabase
             .from('tasks')
             .select('*', { count: 'exact', head: true })
             .eq('due_date', todayStr);
-
-        if (sessionsError) throw sessionsError;
 
         const caseH3 = document.querySelector(".stat-card:nth-child(1) h3");
         const clientH3 = document.querySelector(".stat-card:nth-child(2) h3");
@@ -65,7 +87,7 @@ async function loadLiveStats() {
         if (sessionH3) sessionH3.innerText = `${sessionsCount || 0} مواعيد`;
 
     } catch (err) {
-        console.error("خطأ أثناء تحديث الإحصائيات الحية:", err.message);
+        console.error("خطأ الإحصائيات:", err.message);
     }
 }
 
@@ -109,14 +131,16 @@ async function loadUpcomingSessions() {
             });
         }
     } catch (err) {
-        console.error("خطأ أثناء جلب الأجندة:", err.message);
+        console.error("خطأ الأجندة:", err.message);
     }
 }
 
 window.toggleModal = function(modalId, show) {
     const modalEl = document.getElementById(modalId);
     if (modalEl) {
-        if (show) modalEl.classList.add("active");
-        else modalEl.classList.remove("active");
+        if (modalEl) {
+            if (show) modalEl.classList.add("active");
+            else modalEl.classList.remove("active");
+        }
     }
 }
